@@ -11,6 +11,7 @@ public:
     bool HashTable_Insert(int value); // insert hash value
     bool HashTable_Remove(int value); // remove hash value
     void HashTable_Print(); // print hash table
+    pair<int, int> HashTable_Search(int value);//returns the location of the value if found
     //double HashTable_LoadFactor();
 };
 #endif

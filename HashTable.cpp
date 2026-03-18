@@ -1,4 +1,4 @@
-// HashTable.cpp
+ // HashTable.cpp
 #include "HashTable.h"
 HashTable::~HashTable(){ // destructor
 	delete[] arr; // delete array
@@ -28,6 +28,16 @@ void HashTable:: HashTable_Print() {
 		arr[i].Hashing_LL_Display();
 	}
 
+}
+
+pair<int, int> HashTable::HashTable_Search(int value)
+{
+	int num = value % size;
+	int nodeCount=arr[num].Hashing_LL_Search(value);
+	if (nodeCount == -1)
+		return { -1, -1 };
+
+	return {num, nodeCount};
 }
 
 //double HashTable::HashTable_LoadFactor() {

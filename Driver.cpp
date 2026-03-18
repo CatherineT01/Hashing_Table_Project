@@ -10,6 +10,7 @@ int main() {
 	int size;
 	int value;
 	char userInput=' ';
+	pair<int, int> searchResult = { -1, -1 };
 
 	cout << "Enter size of hash table: ";
 	cin >> size; 
@@ -33,7 +34,13 @@ int main() {
 			table.HashTable_Remove(value);
 			break;
 		case '?':
-			cout << "Location if found" << endl;
+			cout << "Enter value to find: ";
+			cin >> value;
+			searchResult = table.HashTable_Search(value);
+			if (searchResult.second == -1)
+				cout << endl<<"Value doesn't exist" << endl;
+			else
+				cout << "Found at Bucket index: " << searchResult.first << ", node: " << searchResult.second << endl;
 			break;
 		case 'P':
 			cout << "Printing" << endl;
