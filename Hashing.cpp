@@ -36,7 +36,7 @@ void HashingLL:: Hashing_LL_Copy(const HashingLL& other) {
 	}
 }
 
-// Reference: Linked list with Methods Lab (cs 255)
+// Reference: Linked list with Methods Lab (cs 255) 
 bool HashingLL::Hashing_LL_Delete(int item) {
 	if (head == nullptr) { // check if the list is empty
 		return false; 
@@ -62,17 +62,6 @@ bool HashingLL::Hashing_LL_Delete(int item) {
 	return false;
 }
 
-Node* HashingLL::Search(int item) const { // search for item
-	Node* current = head;
-	while (current != nullptr) { // while list is not empty
-		if (current->data == item) { // if item is found
-			return current; // return item if found
-		}
-		current = current->next; // move to next item
-	}
-	return nullptr;
-}
-
 
 bool HashingLL:: Hashing_LL_Insert(int item) {
 	Node* newNode = new Node(item, head);
@@ -81,7 +70,23 @@ bool HashingLL:: Hashing_LL_Insert(int item) {
 	
 }
 
+int HashingLL::Hashing_LL_Search(int item) const { // search for item
+	Node* current = head;
+	int nodeCount = -1;
+	while (current != nullptr)
+	{
+		nodeCount++; // move position forward
+		if (current->data == item)
+		{
+			return nodeCount; // position in linked list
+		}
+		current = current->next;
+	}
+	return -1;
+}
+
 // Reference: Linked list with Methods Lab (cs 255)
+/*
 bool HashingLL:: Hashing_LL_Search(int item)const {
 	Node* current = head;
 	while (current != nullptr){ // while not at the end of list
@@ -92,7 +97,7 @@ bool HashingLL:: Hashing_LL_Search(int item)const {
 	}
 	return false; // return false if not found
 }
-
+*/
 void HashingLL:: Hashing_LL_Display() {
 	Node* temp = head;
 	while (temp != nullptr) {
