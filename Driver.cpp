@@ -2,7 +2,6 @@
 #include "HashTable.h"
 #include <iostream>
 using namespace std;
-
 void displayMenu();
 const string STARS = "**********************************";
 
@@ -10,33 +9,38 @@ int main() {
 	int size;
 	int value;
 	char userInput=' ';
+	pair<int, int> searchResult = { -1,-1 };
 
 	cout << "Enter size of hash table: ";
 	cin >> size; 
 	HashTable table(size); 
+	displayMenu();
 
 	while (userInput != 'Q') {
-		displayMenu();
+		
 		cout << "Make selection: ";
 		cin >> userInput;
 		userInput = toupper(userInput);
+		cout << endl;
 
 		switch (userInput) {
 		case '+':
-			cout << "Enter value: ";
 			cin >> value;
 			table.HashTable_Insert(value);
 			break;
 		case '-':
-			cout << "Enter value to remove: ";
 			cin >> value;
 			table.HashTable_Remove(value);
 			break;
 		case '?':
-			cout << "Location if found" << endl;
+			cin >> value;
+			searchResult = table.HashTable_Search(value);
+			if (searchResult.second == -1)
+				cout << endl << "Value doesn't exist" << endl;
+			else
+				cout << "Found at Bucket index: " << searchResult.first << ", node: " << searchResult.second << endl;
 			break;
 		case 'P':
-			cout << "Printing" << endl;
 			table.HashTable_Print();
 			break;
 		case 'L':
@@ -60,5 +64,5 @@ void displayMenu() {
 	cout << "P: Print Hash Table" << endl;
 	cout << "L: Load Factor" << endl;
 	cout << "Q: Quit" << endl;
-	cout << STARS << endl;
+	cout << STARS << endl << endl;
 }
