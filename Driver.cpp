@@ -9,7 +9,7 @@ int main() {
 	int size;
 	int value;
 	char userInput=' ';
-	pair<int, int> searchResult = { -1,-1 };
+	pair<int, int> searchResult = { -1, -1 };
 
 	cout << "Enter size of hash table: ";
 	cin >> size; 
