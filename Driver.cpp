@@ -45,7 +45,7 @@ int main() {
 			table.HashTable_Print();
 			break;
 		case 'L':
-			cout << "Load factor" << endl;
+			cout << "Load factor: " <<table.HashTable_LoadFactor()<< endl;
 			break;
 		case 'Q':
 			cout << "Exiting" << endl;
