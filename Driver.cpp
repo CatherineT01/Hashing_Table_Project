@@ -10,12 +10,13 @@ int main() {
 	int value;
 	char userInput=' ';
 	pair<int, int> searchResult = { -1, -1 };
-
+	
 	cout << "Enter size of hash table: ";
 	cin >> size; 
-	HashTable table(size); 
-	displayMenu();
+	HashTable<int> table(size);
 
+	displayMenu();
+	
 	while (userInput != 'Q') {
 		
 		cout << "Make selection: ";
